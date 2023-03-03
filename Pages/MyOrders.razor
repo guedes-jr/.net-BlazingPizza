@@ -1,4 +1,4 @@
-@page "/myorders"
+﻿@page "/myorders"
 @inject HttpClient HttpClient
 @inject NavigationManager NavigationManager
 
@@ -47,7 +47,6 @@
 
     protected override async Task OnParametersSetAsync()
     {
-      ordersWithStatus = await HttpClient.GetFromJsonAsync<List<OrderWithStatus>>(
-          $"{NavigationManager.BaseUri}orders");
+      ordersWithStatus = await HttpClient.GetFromJsonAsync<List<OrderWithStatus>>(NavigationManager.BaseUri + "orders");
     }
 }
